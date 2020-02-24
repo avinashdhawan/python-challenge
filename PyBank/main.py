@@ -48,13 +48,10 @@ Maximum = max(average_difference)
 Minimum = min(average_difference)
 MaxIndex = average_difference.index(max(average_difference))
 MinIndex = average_difference.index(min(average_difference))
-print(MaxIndex)
-print(MinIndex)
+
 #MaxIndex + 1 because average difference ignores first cell as difference of 2 cells
 MaxDate = MonthYear[MaxIndex]
 MinDate = MonthYear[MinIndex]
-print(MaxDate)
-print(MinDate)
 
 Summary_File = (MonthYear, ProfitorLoss, average_difference)
 
@@ -66,12 +63,13 @@ with open(Output, "w") as datafile:
     writer.writerows(Summary_File)
 
 
-
-print("Total Profit or Loss is ", Total)
-print("Number of Month's of Data is ", Months)
-print("The Average Difference is ", round(Average,2))
-print("Max is ", Maximum)
-print("Min is ", Minimum)
+print("Financial Analysis")
+print('---------------------------------')
+print("Total Months: ", Months)
+print("Total: $", Total)
+print("The Average Change: $", round(Average,2))
+print("Greatest Increase in Profits: ", MaxDate, "($", Maximum,")")
+print("Greatest Decrease in Profits: ", MinDate, "($", Minimum,")")
 #print(MaxIndex)
 
 
