@@ -61,6 +61,7 @@ MinDate = MonthYear[MinIndex]
 # print("Greatest Increase in Profits: ", MaxDate, "($", Maximum,")")
 # print("Greatest Decrease in Profits: ", MinDate, "($", Minimum,")")
 
+#print summary to screen
 print(f"""Financial Analysis
 ---------------------------------
 Total Months: {Months}
@@ -70,7 +71,7 @@ Greatest Increase in Profits: {MaxDate} ($ {Maximum} )
 Greatest Decrease in Profits: {MinDate} ($ {Minimum} )
 """)
 
-
+#write summary to text file
 Summary_File = open("Summarized_main.txt", "w")
 Summary_File.write(f"""Financial Analysis
 ---------------------------------
@@ -80,15 +81,6 @@ The Average Change: $ {round(Average,2)}
 Greatest Increase in Profits: {MaxDate} ($ {Maximum})
 Greatest Decrease in Profits: {MinDate} ($ {Minimum})
 """)
-
-
-# Summary_File.write("Financial Analysis")
-# Summary_File.write('---------------------------------')
-# Summary_File.write(f"Total Months:, {Months}")
-# Summary_File.write(("Total: $", Total))
-# Summary_File.write(("The Average Change: $", round(Average,2)))
-# Summary_File.write(("Greatest Increase in Profits: ", MaxDate, "($", Maximum,")"))
-# Summary_File.write((("Greatest Decrease in Profits: ", MinDate, "($", Minimum,")")))
 Summary_File.close()
 
 
