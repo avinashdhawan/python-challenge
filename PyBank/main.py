@@ -53,24 +53,46 @@ MinIndex = average_difference.index(min(average_difference))
 MaxDate = MonthYear[MaxIndex]
 MinDate = MonthYear[MinIndex]
 
-Summary_File = (MonthYear, ProfitorLoss, average_difference)
+# print("Financial Analysis")
+# print('---------------------------------')
+# print("Total Months: ", Months)
+# print("Total: $", Total)
+# print("The Average Change: $", round(Average,2))
+# print("Greatest Increase in Profits: ", MaxDate, "($", Maximum,")")
+# print("Greatest Decrease in Profits: ", MinDate, "($", Minimum,")")
 
-Output = os.path.join("Summarized_main.csv")
+print(f"""Financial Analysis
+---------------------------------
+Total Months: {Months}
+Total: ${Total}
+The Average Change: $ {round(Average,2)}
+Greatest Increase in Profits: {MaxDate} ($ {Maximum} )
+Greatest Decrease in Profits: {MinDate} ($ {Minimum} )
+""")
 
-with open(Output, "w") as datafile:
-    writer = csv.writer(datafile)
 
-    writer.writerows(Summary_File)
+Summary_File = open("Summarized_main.txt", "w")
+Summary_File.write(f"""Financial Analysis
+---------------------------------
+Total Months: {Months}
+Total: ${Total}
+The Average Change: $ {round(Average,2)}
+Greatest Increase in Profits: {MaxDate} ($ {Maximum})
+Greatest Decrease in Profits: {MinDate} ($ {Minimum})
+""")
 
 
-print("Financial Analysis")
-print('---------------------------------')
-print("Total Months: ", Months)
-print("Total: $", Total)
-print("The Average Change: $", round(Average,2))
-print("Greatest Increase in Profits: ", MaxDate, "($", Maximum,")")
-print("Greatest Decrease in Profits: ", MinDate, "($", Minimum,")")
-#print(MaxIndex)
+# Summary_File.write("Financial Analysis")
+# Summary_File.write('---------------------------------')
+# Summary_File.write(f"Total Months:, {Months}")
+# Summary_File.write(("Total: $", Total))
+# Summary_File.write(("The Average Change: $", round(Average,2)))
+# Summary_File.write(("Greatest Increase in Profits: ", MaxDate, "($", Maximum,")"))
+# Summary_File.write((("Greatest Decrease in Profits: ", MinDate, "($", Minimum,")")))
+Summary_File.close()
+
+
+
 
 
 
