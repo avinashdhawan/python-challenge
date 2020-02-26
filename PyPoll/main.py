@@ -33,16 +33,15 @@ with open(csvdata) as csvfile:
        Candidate.append(row[2])
 
 
-#csvlength = len(csvreader)
+#number of voters
 Num_of_Voters = len(Voter_ID)        
-Num_of_Counties = len(County)
-Num_of_Candidates = len(Candidate)
 
-print(Num_of_Voters)
-print(Num_of_Counties)
-print(Num_of_Candidates)
-#print(csvreader)
-
+#print summary to screen
+print(f"""Election Results
+---------------------------------
+Total Votes: {Num_of_Voters},
+---------------------------------
+""")
 
 def unique(CandidateList):
     unique_Candidates = []
@@ -54,64 +53,34 @@ def unique(CandidateList):
 
     for x in unique_Candidates: 
         
-        count = Candidate.count(x)
-        percent = round(count*100/Num_of_Voters,3)
-        winner = count.index(max(count)
-        print(x, percent, count) 
-
+       count = Candidate.count(x)
+       percent = round(count*100/Num_of_Voters,3)
+       print(x,": ", percent,"% ", "(",count,")")  
 unique(Candidate)
+#print part 2 of summary to screen
+print(f"""
+---------------------------------
+Winner: {""}
+---------------------------------
+""") 
 
 
-#MaxIndex = max(ProfitorLoss).index
 
-# for i in range(len(ProfitorLoss)):
-    
-#     previous = ProfitorLoss[i-1]
-
-#     current = ProfitorLoss[i]
-        
-#     difference = current - previous
-#     average_difference.append(difference)
-
-
-# Average = (sum(average_difference) - average_difference[0]) / (int(Months) -1)
-# Maximum = max(average_difference)
-# Minimum = min(average_difference)
-# MaxIndex = average_difference.index(max(average_difference))
-# MinIndex = average_difference.index(min(average_difference))
-
-# #MaxIndex + 1 because average difference ignores first cell as difference of 2 cells
-# MaxDate = MonthYear[MaxIndex]
-# MinDate = MonthYear[MinIndex]
-
-# # print("Financial Analysis")
-# # print('---------------------------------')
-# # print("Total Months: ", Months)
-# # print("Total: $", Total)
-# # print("The Average Change: $", round(Average,2))
-# # print("Greatest Increase in Profits: ", MaxDate, "($", Maximum,")")
-# # print("Greatest Decrease in Profits: ", MinDate, "($", Minimum,")")
-
-# #print summary to screen
-# print(f"""Financial Analysis
-# ---------------------------------
-# Total Months: {Months}
-# Total: ${Total}
-# The Average Change: $ {round(Average,2)}
-# Greatest Increase in Profits: {MaxDate} ($ {Maximum} )
-# Greatest Decrease in Profits: {MinDate} ($ {Minimum} )
-# """)
 
 # #write summary to text file
 # Summary_File = open("Summarized_main.txt", "w")
-# Summary_File.write(f"""Financial Analysis
+# Summary_File.write(f"""Election Results
 # ---------------------------------
-# Total Months: {Months}
-# Total: ${Total}
-# The Average Change: $ {round(Average,2)}
-# Greatest Increase in Profits: {MaxDate} ($ {Maximum})
-# Greatest Decrease in Profits: {MinDate} ($ {Minimum})
+# Total Votes: {Num_of_Voters},
+# ---------------------------------
 # """)
+# Summary_File.write(x,": ", percent,"% ", "(",count,")")
+# #print part 2 of summary to text file
+# Summary_File.write(f"""
+# ---------------------------------
+# Winner: {""}
+# ---------------------------------
+# """) 
 # Summary_File.close()
 
 
