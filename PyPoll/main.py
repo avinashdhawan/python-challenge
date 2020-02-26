@@ -12,7 +12,7 @@ csvdata = os.path.join('..', 'Resources', 'election_data.csv')
 Voter_ID = []
 County = []
 Candidate = []
-average_difference = []
+
 
 with open(csvdata) as csvfile:
 
@@ -33,7 +33,7 @@ with open(csvdata) as csvfile:
        Candidate.append(row[2])
 
 
-
+#csvlength = len(csvreader)
 Num_of_Voters = len(Voter_ID)        
 Num_of_Counties = len(County)
 Num_of_Candidates = len(Candidate)
@@ -41,7 +41,25 @@ Num_of_Candidates = len(Candidate)
 print(Num_of_Voters)
 print(Num_of_Counties)
 print(Num_of_Candidates)
+#print(csvreader)
 
+
+def unique(CandidateList):
+    unique_Candidates = []
+
+    for x in CandidateList: 
+        # check if exists in unique_list or not 
+        if x not in unique_Candidates: 
+            unique_Candidates.append(x)
+
+    for x in unique_Candidates: 
+        
+        count = Candidate.count(x)
+        percent = round(count*100/Num_of_Voters,3)
+        winner = count.index(max(count)
+        print(x, percent, count) 
+
+unique(Candidate)
 
 
 #MaxIndex = max(ProfitorLoss).index
