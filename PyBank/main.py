@@ -53,14 +53,6 @@ MinIndex = average_difference.index(min(average_difference))
 MaxDate = MonthYear[MaxIndex]
 MinDate = MonthYear[MinIndex]
 
-# print("Financial Analysis")
-# print('---------------------------------')
-# print("Total Months: ", Months)
-# print("Total: $", Total)
-# print("The Average Change: $", round(Average,2))
-# print("Greatest Increase in Profits: ", MaxDate, "($", Maximum,")")
-# print("Greatest Decrease in Profits: ", MinDate, "($", Minimum,")")
-
 #print summary to screen
 print(f"""Financial Analysis
 ---------------------------------
