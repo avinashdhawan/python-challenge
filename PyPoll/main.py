@@ -20,8 +20,6 @@ with open(csvdata) as csvfile:
     csvreader = csv.reader(csvfile, delimiter=",")
     header = next(csvreader)
 
-
-
     for row in csvreader:
        #extract Voter ID 
        Voter_ID.append(row[0])
@@ -54,13 +52,15 @@ def unique(CandidateList):
     for x in unique_Candidates: 
         
        count = Candidate.count(x)
-       percent = round(count*100/Num_of_Voters,3)
+       percent = round(100*count / Num_of_Voters,3)
        print(x,": ", percent,"% ", "(",count,")")  
+
 unique(Candidate)
+
 #print part 2 of summary to screen
 print(f"""
 ---------------------------------
-Winner: {""}
+"Winner:" {max(Candidate)}
 ---------------------------------
 """) 
 
@@ -68,25 +68,34 @@ Winner: {""}
 
 
 # #write summary to text file
-# Summary_File = open("Summarized_main.txt", "w")
-# Summary_File.write(f"""Election Results
-# ---------------------------------
-# Total Votes: {Num_of_Voters},
-# ---------------------------------
-# """)
-# Summary_File.write(x,": ", percent,"% ", "(",count,")")
-# #print part 2 of summary to text file
-# Summary_File.write(f"""
-# ---------------------------------
-# Winner: {""}
-# ---------------------------------
-# """) 
-# Summary_File.close()
+Summary_File = open("Summarized_main.txt", "w")
+#print summary to screen
+Summary_File.write(f"""Election Results
+---------------------------------
+Total Votes: {Num_of_Voters},
+---------------------------------
+""")
+
+def unique(CandidateList):
+    unique_Candidates = []
+
+    for x in CandidateList: 
+        # check if exists in unique_list or not 
+        if x not in unique_Candidates: 
+            unique_Candidates.append(x)
+
+    for x in unique_Candidates: 
+        
+       count = Candidate.count(x)
+       percent = round(count*100/Num_of_Voters,3)
+       Summary_File.write(f"""{x},": ", {percent},"% ", "(",{count},")" """)  
 
 
-
-
-
-
-
-
+unique(Candidate)
+#print part 2 of summary to screen
+Summary_File.write(f"""
+---------------------------------
+Winner: {max(Candidate)}
+---------------------------------
+""") 
+Summary_File.close()
